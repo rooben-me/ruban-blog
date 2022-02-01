@@ -11,7 +11,13 @@ export default function Home({ posts }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Posts posts={posts} />
+      <section className="font-rany">
+        <h1 className="font-bold text-4xl md:text-6xl xl:text-9xl text-center max-w-2xl mx-auto mt-16">
+          My Blog
+        </h1>
+        <div className="h-[2px] bg-slate-300 my-8 md:my-16 max-w-2xl mx-4 md:mx-auto" />
+        <Posts posts={posts} />
+      </section>
     </div>
   );
 }
@@ -19,6 +25,7 @@ export default function Home({ posts }) {
 export const getServerSideProps = async () => {
   const query = `*[_type == "post"] {
     _id,
+    _createdAt,
     title, 
     author -> {
      name, 
@@ -26,7 +33,7 @@ export const getServerSideProps = async () => {
     },
     description,
     mainImage, 
-    slug
+    slug,
   }`;
 
   const posts = await sanityClient.fetch(query);
