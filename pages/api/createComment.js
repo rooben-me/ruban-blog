@@ -11,6 +11,7 @@ const client = sanityClient(config);
 
 export default async function createComment(req, res) {
   const { _id, name, email, comment } = JSON.parse(req.body);
+  const createdAt = new Date().toISOString();
 
   try {
     await client.create({
@@ -22,6 +23,7 @@ export default async function createComment(req, res) {
       name,
       email,
       comment,
+      createdAt,
     });
   } catch (err) {
     // return res.status(500).json({ message: "Couldnt send message", err });

@@ -4,7 +4,7 @@ import { urlfor } from "../sanity";
 
 function Posts({ posts }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16 md:gap-8 max-w-7xl mx-auto">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16 md:gap-8 max-w-7xl mb-16 mx-auto">
       {posts.map((post) => (
         <Link key={post._id} href={`/post/${post.slug.current}`}>
           <div className="px-4 group cursor-pointer">

@@ -19,6 +19,8 @@ function Comment({ post }) {
       });
   };
 
+  let moment = require("moment");
+
   return (
     <div>
       <div className="py-12 my-8 bg-white bg-opacity-50 px-4 rounded-lg">
@@ -108,12 +110,24 @@ function Comment({ post }) {
         )}
       </div>
 
-      <section>
-        <h2 className="text-2xl text-slate-800 font-semibold"> Comments </h2>
+      <section className="mx-auto max-w-xl my-16">
+        <h2 className="text-2xl text-slate-800 font-semibold mb-12 pb-4 border-b-2 border-slate-300">
+          Comments
+        </h2>
         {post.comments.map((comment) => (
-          <div className="flex items-center space-x-2" key={comment._id}>
-            <p className="font-medium text-slate-800">{comment.name} : </p>
-            <span>{comment.comment}</span>
+          <div
+            className="flex flex-col items-start space-y-2 mt-8"
+            key={comment._id}
+          >
+            <p className="text-slate-400">
+              <span className="font-semibold mr-2 text-slate-800">
+                {comment.name}&nbsp;
+              </span>
+
+              {moment(comment.createAt).fromNow()}
+            </p>
+
+            <span className="text-slate-500">{comment.comment}</span>
           </div>
         ))}
       </section>

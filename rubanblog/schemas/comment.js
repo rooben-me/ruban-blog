@@ -23,6 +23,10 @@ export default {
       type: "text",
     },
     {
+      name: "createdAt",
+      type: "datetime",
+    },
+    {
       name: "post",
       type: "reference",
       to: { type: "post" },
