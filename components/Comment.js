@@ -19,6 +19,8 @@ function Comment({ post }) {
       });
   };
 
+  console.log(post);
+
   let moment = require("moment");
 
   return (
@@ -124,7 +126,7 @@ function Comment({ post }) {
                 {comment.name}&nbsp;
               </span>
 
-              {moment(comment.createAt).fromNow()}
+              {moment(comment._updatedAt).fromNow()}
             </p>
 
             <span className="text-slate-500">{comment.comment}</span>

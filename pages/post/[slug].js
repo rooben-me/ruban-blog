@@ -45,6 +45,12 @@ function Post({ post }) {
               h2: (props) => (
                 <h2 className="text-xl font-bold my-5" {...props} />
               ),
+              h3: (props) => (
+                <h3
+                  className="text-2xl font-medium mb-4 mt-16 text-slate-800"
+                  {...props}
+                />
+              ),
               li: ({ children }) => (
                 <li className="ml-4 list-disc text-slate-500 mt-8 text-xl">
                   {children}
@@ -54,7 +60,7 @@ function Post({ post }) {
                 <a className="text-pink-500 hover:underline">{children}</a>
               ),
               normal: ({ children }) => (
-                <p className="text-2xl font-medium mb-4 mt-16 text-slate-800">
+                <p className="text-lg font-medium my-5 text-slate-600">
                   {children}
                 </p>
               ),
