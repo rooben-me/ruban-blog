@@ -116,22 +116,24 @@ function Comment({ post }) {
         <h2 className="text-2xl text-slate-800 font-semibold mb-12 pb-4 border-b-2 border-slate-300">
           Comments
         </h2>
-        {post.comments.map((comment) => (
-          <div
-            className="flex flex-col items-start space-y-2 mt-8"
-            key={comment._id}
-          >
-            <p className="text-slate-400">
-              <span className="font-semibold mr-2 text-slate-800">
-                {comment.name}&nbsp;
-              </span>
+        <div className="flex flex-col-reverse gap-y-12">
+          {post.comments.map((comment) => (
+            <div
+              className="flex flex-col items-start space-y-2"
+              key={comment._id}
+            >
+              <p className="text-slate-400">
+                <span className="font-semibold mr-2 text-slate-800">
+                  {comment.name}&nbsp;
+                </span>
 
-              {moment(comment._updatedAt).fromNow()}
-            </p>
+                {moment(comment._updatedAt).fromNow()}
+              </p>
 
-            <span className="text-slate-500">{comment.comment}</span>
-          </div>
-        ))}
+              <span className="text-slate-500">{comment.comment}</span>
+            </div>
+          ))}
+        </div>
       </section>
     </div>
   );
